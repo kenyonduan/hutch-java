@@ -18,6 +18,8 @@
   <properties>
     <compiler-plugin.version>3.14.0</compiler-plugin.version>
     <failsafe-plugin.version>${surefire-plugin.version}</failsafe-plugin.version>
+    <github.owner>eardata</github.owner>
+    <github.repo>hutch-java</github.repo>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -43,9 +45,7 @@
     <repository>
       <id>github</id>
       <name>GitHub OWNER Apache Maven Packages</name>
-      <!--<url>https://maven.pkg.github.com/wppurking/hutch-java</url>-->
-      <!--<url>https://maven.pkg.github.com/kenyonduan/hutch-java</url>-->
-      <url>https://maven.pkg.github.com/eardata/hutch-java</url>
+      <url>https://maven.pkg.github.com/${github.owner}/${github.repo}</url>
     </repository>
   </distributionManagement>
   <build>

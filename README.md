@@ -127,6 +127,14 @@ maven 3.9 的 部署问题: https://github.com/community/community/discussions/4
 
 注意在 `~/.m2/settings.xml` 中配置好 github 的 token 等信息.
 
+如果出现 `401 Unauthorized`, 先检查两件事:
+
+1. `pom.xml` 中的发布目标是否和你要发布的仓库一致. 当前项目默认发布到 `eardata/hutch-java`, 如果你是发布到自己的 fork, 用下面的方式覆盖:
+
+  `mvn deploy -DskipTests -Dmaven.resolver.transport=wagon -Dgithub.owner=你的 GitHub 用户名 -Dgithub.repo=hutch-java`
+
+2. `~/.m2/settings.xml` 里的 `<server><id>github</id></server>` 是否使用了对目标仓库有权限的 token. GitHub Packages 至少需要 `write:packages`, 私有仓库通常还需要 `repo`, 如果组织启用了 SSO 还要给 token 授权.
+
 ```xml
 
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
