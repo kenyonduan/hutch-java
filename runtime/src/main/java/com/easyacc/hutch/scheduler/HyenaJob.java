@@ -62,7 +62,7 @@ public class HyenaJob implements Runnable {
       log.debug("Reload skipped. The interval must > 1m, right now is: {}s", intervals);
     }
 
-    this.consumerThresholdKeys = Hutch.redis().keys(String.format("%s*", prefix));
+    this.consumerThresholdKeys = Hutch.redis().keys(String.format("%s.*", prefix));
     this.updatedAt = Instant.now();
   }
 
